@@ -8,4 +8,12 @@
         <category>笔试题</category>
       </categories>
   </entry>
+  <entry>
+    <title><![CDATA[latex语句生成]]></title>
+    <url>%2Fblog%2F27df4079%2F</url>
+    <content type="text"><![CDATA[添加latex公式标记行内公式行间公式生成latex多行公式指令不自动编号问题描述java实现程序输入运行结果记得有一句话:软件开发的本质就是把复杂的东西简单化，简单的东西自动化。latex语句繁多，容易忘掉，还是自己写代码自动生成的好，实现代码如下。添加latex公式标记行内公式行内公式直接在公式两边添加各自添加一个美元符号即可，如f(x)=1+x,行内公式为$f(x)=1+x$,显示效果$f(x)=1+x$。行间公式行间公式在公式两边搁置添加两个美元符号即可，行间公式会显示在新行，并且居中对齐。如f(x)=1+x,行内公式为$$f(x)=1+x$$,显示效果$$f(x)=1+x$$。生成latex多行公式指令不自动编号问题描述把下面的多行公式123(a + b)^3 = (a + b) (a + b)^2 = (a + b)(a^2 + 2ab + b^2) = a^3 + 3a^2b + 3ab^2 + b^3转成latex形式：1234567$$\begin&#123;align&#125; (a + b)^3 &amp;= (a + b) (a + b)^2 \nonumber \\ &amp;= (a + b)(a^2 + 2ab + b^2) \nonumber \\ &amp;= a^3 + 3a^2b + 3ab^2 + b^3\nonumber\\\end&#123;align&#125;$$显示效果：$$\begin{align}(a + b)^3 &amp;= (a + b) (a + b)^2 \nonumber \\&amp;= (a + b)(a^2 + 2ab + b^2) \nonumber \\&amp;= a^3 + 3a^2b + 3ab^2 + b^3 \nonumber \\\end{align}$$java实现12345678910111213141516171819202122 public static String getAlign(String text) &#123;// \begin&#123;align&#125;// f(-x)+f(x)&amp;=ln(\sqrt&#123;1+x^2&#125;+x)+ln(\sqrt&#123;1+x^2&#125;-x)\nonumber\\// &amp;=ln[(\sqrt&#123;1+x^2&#125;+x)(\sqrt&#123;1+x^2&#125;-x)]\nonumber\\// &amp;=ln(1+x^2-x^2)\nonumber\\// &amp;=ln1\nonumber\\// &amp;=0\nonumber// \end&#123;align&#125; //使用正则表达式在等号前面加上对齐符号 text=text.replaceAll("=", "&amp;="); //使用正则表达式在换行符和字符串末尾添加上latex换行符`\\`--这里四个换行符对应一个反斜杠 text=text.replaceAll("(:?\\n|$)", " \\\\nonumber \\\\\\\\"+"\n"); //加上latex语法头 String casecode="$$\n"+ "\\begin&#123;align&#125;\n"+ text+ "\\end&#123;align&#125;\n"+ "$$"; System.out.println(casecode); return casecode; &#125;程序输入text输入下面的代码：123(a + b)^3 = (a + b) (a + b)^2 = (a + b)(a^2 + 2ab + b^2) = a^3 + 3a^2b + 3ab^2 + b^3运行结果1234567$$\begin&#123;align&#125; (a + b)^3 &amp;= (a + b) (a + b)^2 \nonumber \\ &amp;= (a + b)(a^2 + 2ab + b^2) \nonumber \\ &amp;= a^3 + 3a^2b + 3ab^2 + b^3 \nonumber \\\end&#123;align&#125;$$显示效果$$\begin{align}(a + b)^3 &amp;= (a + b) (a + b)^2 \nonumber \\&amp;= (a + b)(a^2 + 2ab + b^2) \nonumber \\&amp;= a^3 + 3a^2b + 3ab^2 + b^3 \nonumber \\\end{align}$$本文链接: latex语句生成]]></content>
+      <categories>
+        <category>我的工具软件</category>
+      </categories>
+  </entry>
 </search>
