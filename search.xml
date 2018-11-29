@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[测试隐藏ul]]></title>
-    <url>%2Fblog%2Fc64e5eb5%2F</url>
-    <content type="text"><![CDATA[标题1标题2标题3标题3标题2标题1function displayTOC(){document.querySelector(".post-body > ul").style.display="block"}function hideTOC(){document.querySelector(".post-body > ul").style.display="none"}!function(){document.querySelector(".post-body > ul").style.display="none"}()标题1标题2标题3标题3标题2标题1本文链接: 测试隐藏ul]]></content>
-      <categories>
-        <category>测试</category>
-      </categories>
+    <title></title>
+    <url>%2Fblog%2F0%2F</url>
+    <content type="text"><![CDATA[标题1标题2标题3标题3标题2标题1本文链接: 测试隐藏ul]]></content>
   </entry>
   <entry>
     <title><![CDATA[HTML笔试题]]></title>
