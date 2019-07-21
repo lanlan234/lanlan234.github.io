@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xiaolan234.github.io/"/>
-  <updated>2019-07-16T04:42:28.000Z</updated>
+  <updated>2019-07-21T17:57:49.000Z</updated>
   <id>https://xiaolan234.github.io/</id>
   
   <author>
@@ -15,6 +15,162 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前n个升序剩下的降序</title>
+    <link href="https://xiaolan234.github.io/blog/9d65c8ba/"/>
+    <id>https://xiaolan234.github.io/blog/9d65c8ba/</id>
+    <published>2019-07-21T17:51:31.000Z</published>
+    <updated>2019-07-21T17:57:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><a href="/blog/null/#题目">题目</a></li><li><a href="/blog/null/#代码">代码</a></li></ul><a id="more"></a><script>document.querySelector(".post-body > ul").style.display = "none";</script><!--end--><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给一个数字前k个数升序排列,剩下的降序排列：</p><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 对数组前k的数字使用一种排序,剩下的用另一种排序.</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> array</span></span><br><span class="line"><span class="comment"> *            整型数组.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> k</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> isAscendingFirst</span></span><br><span class="line"><span class="comment"> *            如果为true表示第一部分升序,剩下的降序.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSortSplit</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> k,</span></span></span><br><span class="line"><span class="function"><span class="params"><span class="keyword">boolean</span> isAscendingFirst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">// 前面升序后面降序</span></span><br><span class="line"><span class="keyword">if</span> (isAscendingFirst)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; array.length; i++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; array.length - i + <span class="number">1</span>; j++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (j &lt; k)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 升序排列:前面的要大于后面的元素</span></span><br><span class="line"><span class="comment">// 所以当前面小的时候要交换</span></span><br><span class="line"><span class="keyword">if</span> (array[j] &lt; array[j - <span class="number">1</span>])</span><br><span class="line">&#123;</span><br><span class="line">array[j] ^= array[j - <span class="number">1</span>];</span><br><span class="line">array[j - <span class="number">1</span>] ^= array[j];</span><br><span class="line">array[j] ^= array[j - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line">&#125; <span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 降序排列:前面的要小于后面的元素</span></span><br><span class="line"><span class="comment">// 所以当前面大的时候要交换</span></span><br><span class="line"><span class="keyword">if</span> (array[j] &gt; array[j - <span class="number">1</span>])</span><br><span class="line">&#123;</span><br><span class="line">array[j] ^= array[j - <span class="number">1</span>];</span><br><span class="line">array[j - <span class="number">1</span>] ^= array[j];</span><br><span class="line">array[j] ^= array[j - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 前面降序后面升序</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; array.length; i++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; array.length - i + <span class="number">1</span>; j++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (j &lt; k)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 降序排列:前面的要小于后面的元素</span></span><br><span class="line"><span class="comment">// 所以当前面大的时候要交换</span></span><br><span class="line"><span class="keyword">if</span> (array[j] &gt; array[j - <span class="number">1</span>])</span><br><span class="line">&#123;</span><br><span class="line">array[j] ^= array[j - <span class="number">1</span>];</span><br><span class="line">array[j - <span class="number">1</span>] ^= array[j];</span><br><span class="line">array[j] ^= array[j - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line">&#125; <span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 升序排列:前面的要大于后面的元素</span></span><br><span class="line"><span class="comment">// 所以当前面小的时候要交换</span></span><br><span class="line"><span class="keyword">if</span> (array[j] &lt; array[j - <span class="number">1</span>])</span><br><span class="line">&#123;</span><br><span class="line">array[j] ^= array[j - <span class="number">1</span>];</span><br><span class="line">array[j - <span class="number">1</span>] ^= array[j];</span><br><span class="line">array[j] ^= array[j - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/null/#题目&quot;&gt;题目&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/null/#代码&quot;&gt;代码&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="笔试题" scheme="https://xiaolan234.github.io/categories/%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    
+      <category term="java" scheme="https://xiaolan234.github.io/categories/%E7%AC%94%E8%AF%95%E9%A2%98/java/"/>
+    
+      <category term="数组排序" scheme="https://xiaolan234.github.io/categories/%E7%AC%94%E8%AF%95%E9%A2%98/java/%E6%95%B0%E7%BB%84%E6%8E%92%E5%BA%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>最终面面试准备</title>
+    <link href="https://xiaolan234.github.io/blog/701d61ba/"/>
+    <id>https://xiaolan234.github.io/blog/701d61ba/</id>
+    <published>2019-07-18T06:28:04.000Z</published>
+    <updated>2019-07-18T06:28:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><a href="/blog/null/#自我介绍">自我介绍</a></li></ul><a id="more"></a><script>document.querySelector(".post-body > ul").style.display = "none";</script><!--end--><h1 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h1><p>我叫男生,来自南京邮电大学(仙林校区),明年毕业.我家在广西省河池市,将来打算留在南京这边发展,不打算回广西。<br>我学校的课程已经修完了,所以实习的话没有课程方面的干扰,我还有一个毕业设计要完成,是通过邮件和联系毕设老师联系的,我准备下学期做完,然后就可以毕业了。<br>我平时喜欢看看技术书籍,现阶段主要看的是<code>Java</code>方法的书,所以我现在对<code>Java</code>方面的知识了解的比较多。然后我也用<code>Java</code>写过一些辅助学习的应用。</p><h1 id="你还有什么想问的"><a href="#你还有什么想问的" class="headerlink" title="你还有什么想问的"></a>你还有什么想问的</h1><h2 id="后面还有面试吗"><a href="#后面还有面试吗" class="headerlink" title="后面还有面试吗"></a>后面还有面试吗</h2><h2 id="如果面试通过-什么时候可以入职"><a href="#如果面试通过-什么时候可以入职" class="headerlink" title="如果面试通过,什么时候可以入职"></a>如果面试通过,什么时候可以入职</h2><h2 id="实习可以转正吗"><a href="#实习可以转正吗" class="headerlink" title="实习可以转正吗"></a>实习可以转正吗</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/null/#自我介绍&quot;&gt;自我介绍&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="公司" scheme="https://xiaolan234.github.io/categories/%E5%85%AC%E5%8F%B8/"/>
+    
+      <category term="上海泛微南京分公司" scheme="https://xiaolan234.github.io/categories/%E5%85%AC%E5%8F%B8/%E4%B8%8A%E6%B5%B7%E6%B3%9B%E5%BE%AE%E5%8D%97%E4%BA%AC%E5%88%86%E5%85%AC%E5%8F%B8/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>项目中遇到的问题</title>
+    <link href="https://xiaolan234.github.io/blog/76850b79/"/>
+    <id>https://xiaolan234.github.io/blog/76850b79/</id>
+    <published>2019-07-17T14:05:57.000Z</published>
+    <updated>2019-07-17T14:11:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><a href="/blog/76850b79/#Markdown代码生成器项目中遇到的问题">Markdown代码生成器项目中遇到的问题</a><ul><li><a href="/blog/76850b79/#命令错误程序无法正常实现功能">命令错误程序无法正常实现功能</a><ul><li><a href="/blog/76850b79/#问题描述">问题描述</a></li><li><a href="/blog/76850b79/#解决方案">解决方案</a></li></ul></li></ul></li></ul><a id="more"></a><script>document.querySelector(".post-body > ul").style.display = "none";</script><!--end--><h1 id="Markdown代码生成器项目中遇到的问题"><a href="#Markdown代码生成器项目中遇到的问题" class="headerlink" title="Markdown代码生成器项目中遇到的问题"></a>Markdown代码生成器项目中遇到的问题</h1><h2 id="命令错误程序无法正常实现功能"><a href="#命令错误程序无法正常实现功能" class="headerlink" title="命令错误程序无法正常实现功能"></a>命令错误程序无法正常实现功能</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>启动命令错误时,程序只打印帮助文档,用户看到帮助文档后,只能关掉进程,再次通过win+r启动一个进程。</p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>当启动命令输入错误时,在显示帮助文档之后,让用户输入正确的命令。</p><blockquote><p>原文链接: <a href="https://lanlan234.github.io/blog/76850b79/" target="_blank" rel="noopener">项目中遇到的问题</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/76850b79/#Markdown代码生成器项目中遇到的问题&quot;&gt;Markdown代码生成器项目中遇到的问题&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/76850b79/#命令错误程序无法正常实现功能&quot;&gt;命令错误程序无法正常实现功能&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/76850b79/#问题描述&quot;&gt;问题描述&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/76850b79/#解决方案&quot;&gt;解决方案&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="面试题" scheme="https://xiaolan234.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+      <category term="项目" scheme="https://xiaolan234.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="Markdown代码生成器" scheme="https://xiaolan234.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%A1%B9%E7%9B%AE/Markdown%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>上海泛微软件有限公司</title>
+    <link href="https://xiaolan234.github.io/blog/971de8a2/"/>
+    <id>https://xiaolan234.github.io/blog/971de8a2/</id>
+    <published>2019-07-17T06:25:34.000Z</published>
+    <updated>2019-07-17T07:09:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><a href="/blog/971de8a2/#上海泛微软件有限公司">上海泛微软件有限公司</a><ul><li><a href="/blog/971de8a2/#领域">领域</a></li><li><a href="/blog/971de8a2/#产品体系">产品体系</a></li><li><a href="/blog/971de8a2/#客户">客户</a></li><li><a href="/blog/971de8a2/#OA">OA</a></li><li><a href="/blog/971de8a2/#OA软件的核心应用">OA软件的核心应用</a></li><li><a href="/blog/971de8a2/#OA五大特性">OA五大特性</a><ul><li><a href="/blog/971de8a2/#OA要有易用性">OA要有易用性</a></li><li><a href="/blog/971de8a2/#健壮性要求">健壮性要求</a></li></ul></li></ul></li></ul><a id="more"></a><script>document.querySelector(".post-body > ul").style.display = "none";</script><!--end--><h1 id="上海泛微软件有限公司"><a href="#上海泛微软件有限公司" class="headerlink" title="上海泛微软件有限公司"></a>上海泛微软件有限公司</h1><p>上海泛微软件有限公司成立<strong>于2001年</strong>，总部位于上海,泛微在多个城市设有分支机构,是一个规模比较大的公司.</p><h2 id="领域"><a href="#领域" class="headerlink" title="领域"></a>领域</h2><p>泛微软件主要是<code>面向企业信息化建设领域</code>,,<strong>是业界领先的 协同管理系统 和解决方案 供应商</strong>,<br>泛微致力于为用户提供专业、全面、量身订制的<code>企业协同管理</code>软件和<code>应用解决方案</code>。</p><h2 id="产品体系"><a href="#产品体系" class="headerlink" title="产品体系"></a>产品体系</h2><p>泛微产品体系包括:</p><ul><li>泛微协同管理平台  <code>e-cology</code> , <code>e-cology</code>是面向大中型企业的 平台型 产品 、</li><li>泛微协同办公系统 标准版 <code>e-office</code>,<code>e-office</code>是 面向中小型企业的 应用型 产品  、</li><li>一体化的移动办公<code>云OA平台</code>e-teams、</li><li>泛微协同政务系统  e-nation， e-nation是面向向政府单位的<code>移动政务办公 平台</code> ，</li><li>帮助企业对接移动互联的<code>移动办公平台</code> e-mobile.</li></ul><h2 id="客户"><a href="#客户" class="headerlink" title="客户"></a>客户</h2><p>泛微的客户比较多,在全国有上万家企事业单位都是泛微的客户，<code>上海医药</code>，<code>复星集团</code>，<code>上汽集团</code>、<code>格力电器</code>、<code>TCL</code>、<code>双汇集团</code>、<code>伊利集团</code>、、<code>万达集团</code>、王府井百货等<code>世界500强，中国500强企业</code>。</p><h2 id="OA"><a href="#OA" class="headerlink" title="OA"></a>OA</h2><p>办公自动化系统</p><h2 id="OA软件的核心应用"><a href="#OA软件的核心应用" class="headerlink" title="OA软件的核心应用"></a>OA软件的核心应用</h2><p>OA软件的核心应用是：<code>流程审批</code>、<code>协同工作</code>、<code>计划管理</code>、<code>项目管理</code>、<code>任务管理</code>、<code>会议管理</code>，<code>文档管理</code>、<code>公文管理</code>(国企和政府机关)、<code>沟通工具</code>、<code>信息中心</code>、等一系列和办公相关的应用.</p><h2 id="OA五大特性"><a href="#OA五大特性" class="headerlink" title="OA五大特性"></a>OA五大特性</h2><p>作为办公软件就应具备几大特性：<code>易用性</code>、<code>健壮性</code>、<code>开放性</code>、<code>严密性</code>、<code>实用性</code>。</p><h3 id="有易用性"><a href="#有易用性" class="headerlink" title="有易用性"></a>有易用性</h3><p>因为任何软件都是需要培训的，但是上网却几乎人人都会。就支撑制度落地的软件而言，OA系统走网页风格可能是个最佳选择。</p><h3 id="健壮性要求"><a href="#健壮性要求" class="headerlink" title="健壮性要求"></a>健壮性要求</h3><p>软件必须具备超大用户、高并发应用的稳定性。</p><h3 id="开放性"><a href="#开放性" class="headerlink" title="开放性"></a>开放性</h3><p>开放性要求OA能够与其它软件系统完成必要的关联性整合应用。</p><h3 id="严密性"><a href="#严密性" class="headerlink" title="严密性"></a>严密性</h3><p>严密性要求必须同时实现信息数据上的大集中与小独立的和谐统一,这是因为企业一方面必须有统一的信息平台，另一方面，又必须给各个子公司部门相对独立的信息空间。这要求OA系统必须实现“用户、角色、权限+数据”的四维管控</p><h3 id="实用性"><a href="#实用性" class="headerlink" title="实用性"></a>实用性</h3><p>实用性要求软件能够满足发展的需求</p><blockquote><p>原文链接: <a href="https://lanlan234.github.io/blog/971de8a2/" target="_blank" rel="noopener">上海泛微软件有限公司</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/971de8a2/#上海泛微软件有限公司&quot;&gt;上海泛微软件有限公司&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/971de8a2/#领域&quot;&gt;领域&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/971de8a2/#产品体系&quot;&gt;产品体系&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/971de8a2/#客户&quot;&gt;客户&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/971de8a2/#OA&quot;&gt;OA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/971de8a2/#OA软件的核心应用&quot;&gt;OA软件的核心应用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/971de8a2/#OA五大特性&quot;&gt;OA五大特性&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/971de8a2/#OA要有易用性&quot;&gt;OA要有易用性&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/971de8a2/#健壮性要求&quot;&gt;健壮性要求&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="公司" scheme="https://xiaolan234.github.io/categories/%E5%85%AC%E5%8F%B8/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>项目中出现的问题</title>
+    <link href="https://xiaolan234.github.io/blog/8f6930a6/"/>
+    <id>https://xiaolan234.github.io/blog/8f6930a6/</id>
+    <published>2019-07-17T05:13:54.000Z</published>
+    <updated>2019-07-17T05:25:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><a href="/blog/null/#项目中出现的问题">项目中出现的问题</a><ul><li><a href="/blog/null/#文章篇幅过大合成失败">文章篇幅过大合成失败</a><ul><li><a href="/blog/null/#原因">原因</a></li><li><a href="/blog/null/#解决方案">解决方案</a></li></ul></li><li><a href="/blog/null/#文章中有废话的情况">文章中有废话的情况</a><ul><li><a href="/blog/null/#原因">原因</a></li><li><a href="/blog/null/#解决方案">解决方案</a></li></ul></li></ul></li></ul><a id="more"></a><script>document.querySelector(".post-body > ul").style.display = "none";</script><!--end--><h1 id="项目中出现的问题"><a href="#项目中出现的问题" class="headerlink" title="项目中出现的问题"></a>项目中出现的问题</h1><h2 id="文章篇幅过大合成失败"><a href="#文章篇幅过大合成失败" class="headerlink" title="文章篇幅过大合成失败"></a>文章篇幅过大合成失败</h2><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>讯飞提供的语音合成API有字数限制,超过一定数字后无法合成.</p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>采用分治法,分割文章内容为多个部分,然后按部分合成,保存到临时文件,最后再用IO把多个部分合并成一个音频文件.</p><h2 id="文章中有废话的情况"><a href="#文章中有废话的情况" class="headerlink" title="文章中有废话的情况"></a>文章中有废话的情况</h2><h3 id="原因-1"><a href="#原因-1" class="headerlink" title="原因"></a>原因</h3><p>之前合成的内容是整篇文章,后面我发现有些废话太多,导致合成的音频过长,没有收听的欲望.</p><h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>在文章中添加一些标记行,当读取文章的时候,扫描到这些标记的时候,才读入内存.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/null/#项目中出现的问题&quot;&gt;项目中出现的问题&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/null/#文章篇幅过大合成失败&quot;&gt;文章篇幅过大合成失败&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/null/#原因&quot;&gt;原因&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/null/#解决方案&quot;&gt;解决方案&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/null/#文章中有废话的情况&quot;&gt;文章中有废话的情况&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/null/#原因&quot;&gt;原因&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/null/#解决方案&quot;&gt;解决方案&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="面试题" scheme="https://xiaolan234.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+      <category term="项目" scheme="https://xiaolan234.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="语音合成" scheme="https://xiaolan234.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%A1%B9%E7%9B%AE/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>亚信安全</title>

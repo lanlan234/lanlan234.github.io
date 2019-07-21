@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[前n个升序剩下的降序]]></title>
+    <url>%2Fblog%2F9d65c8ba%2F</url>
+    <content type="text"><![CDATA[题目 代码 document.querySelector(".post-body > ul").style.display = "none"; 题目给一个数字前k个数升序排列,剩下的降序排列： 代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475/** * 对数组前k的数字使用一种排序,剩下的用另一种排序. * * @param array * 整型数组. * @param k * @param isAscendingFirst * 如果为true表示第一部分升序,剩下的降序. */public static void bubbleSortSplit(int[] array, int k, boolean isAscendingFirst)&#123; // 前面升序后面降序 if (isAscendingFirst) &#123; for (int i = 1; i &lt; array.length; i++) &#123; for (int j = 1; j &lt; array.length - i + 1; j++) &#123; if (j &lt; k) &#123; // 升序排列:前面的要大于后面的元素 // 所以当前面小的时候要交换 if (array[j] &lt; array[j - 1]) &#123; array[j] ^= array[j - 1]; array[j - 1] ^= array[j]; array[j] ^= array[j - 1]; &#125; &#125; else &#123; // 降序排列:前面的要小于后面的元素 // 所以当前面大的时候要交换 if (array[j] &gt; array[j - 1]) &#123; array[j] ^= array[j - 1]; array[j - 1] ^= array[j]; array[j] ^= array[j - 1]; &#125; &#125; &#125; &#125; &#125; // 前面降序后面升序 else &#123; for (int i = 1; i &lt; array.length; i++) &#123; for (int j = 1; j &lt; array.length - i + 1; j++) &#123; if (j &lt; k) &#123; // 降序排列:前面的要小于后面的元素 // 所以当前面大的时候要交换 if (array[j] &gt; array[j - 1]) &#123; array[j] ^= array[j - 1]; array[j - 1] ^= array[j]; array[j] ^= array[j - 1]; &#125; &#125; else &#123; // 升序排列:前面的要大于后面的元素 // 所以当前面小的时候要交换 if (array[j] &lt; array[j - 1]) &#123; array[j] ^= array[j - 1]; array[j - 1] ^= array[j]; array[j] ^= array[j - 1]; &#125; &#125; &#125; &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>笔试题</category>
+        <category>java</category>
+        <category>数组排序</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[最终面面试准备]]></title>
+    <url>%2Fblog%2F701d61ba%2F</url>
+    <content type="text"><![CDATA[自我介绍 document.querySelector(".post-body > ul").style.display = "none"; 自我介绍我叫男生,来自南京邮电大学(仙林校区),明年毕业.我家在广西省河池市,将来打算留在南京这边发展,不打算回广西。我学校的课程已经修完了,所以实习的话没有课程方面的干扰,我还有一个毕业设计要完成,是通过邮件和联系毕设老师联系的,我准备下学期做完,然后就可以毕业了。我平时喜欢看看技术书籍,现阶段主要看的是Java方法的书,所以我现在对Java方面的知识了解的比较多。然后我也用Java写过一些辅助学习的应用。 你还有什么想问的后面还有面试吗如果面试通过,什么时候可以入职实习可以转正吗]]></content>
+      <categories>
+        <category>公司</category>
+        <category>上海泛微南京分公司</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[项目中遇到的问题]]></title>
+    <url>%2Fblog%2F76850b79%2F</url>
+    <content type="text"><![CDATA[Markdown代码生成器项目中遇到的问题 命令错误程序无法正常实现功能 问题描述 解决方案 document.querySelector(".post-body > ul").style.display = "none"; Markdown代码生成器项目中遇到的问题命令错误程序无法正常实现功能问题描述启动命令错误时,程序只打印帮助文档,用户看到帮助文档后,只能关掉进程,再次通过win+r启动一个进程。 解决方案当启动命令输入错误时,在显示帮助文档之后,让用户输入正确的命令。 原文链接: 项目中遇到的问题]]></content>
+      <categories>
+        <category>面试题</category>
+        <category>项目</category>
+        <category>Markdown代码生成器</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[上海泛微软件有限公司]]></title>
+    <url>%2Fblog%2F971de8a2%2F</url>
+    <content type="text"><![CDATA[上海泛微软件有限公司 领域 产品体系 客户 OA OA软件的核心应用 OA五大特性 OA要有易用性 健壮性要求 document.querySelector(".post-body > ul").style.display = "none"; 上海泛微软件有限公司上海泛微软件有限公司成立于2001年，总部位于上海,泛微在多个城市设有分支机构,是一个规模比较大的公司. 领域泛微软件主要是面向企业信息化建设领域,,是业界领先的 协同管理系统 和解决方案 供应商,泛微致力于为用户提供专业、全面、量身订制的企业协同管理软件和应用解决方案。 产品体系泛微产品体系包括: 泛微协同管理平台 e-cology , e-cology是面向大中型企业的 平台型 产品 、 泛微协同办公系统 标准版 e-office,e-office是 面向中小型企业的 应用型 产品 、 一体化的移动办公云OA平台e-teams、 泛微协同政务系统 e-nation， e-nation是面向向政府单位的移动政务办公 平台 ， 帮助企业对接移动互联的移动办公平台 e-mobile. 客户泛微的客户比较多,在全国有上万家企事业单位都是泛微的客户，上海医药，复星集团，上汽集团、格力电器、TCL、双汇集团、伊利集团、、万达集团、王府井百货等世界500强，中国500强企业。 OA办公自动化系统 OA软件的核心应用OA软件的核心应用是：流程审批、协同工作、计划管理、项目管理、任务管理、会议管理，文档管理、公文管理(国企和政府机关)、沟通工具、信息中心、等一系列和办公相关的应用. OA五大特性作为办公软件就应具备几大特性：易用性、健壮性、开放性、严密性、实用性。 有易用性因为任何软件都是需要培训的，但是上网却几乎人人都会。就支撑制度落地的软件而言，OA系统走网页风格可能是个最佳选择。 健壮性要求软件必须具备超大用户、高并发应用的稳定性。 开放性开放性要求OA能够与其它软件系统完成必要的关联性整合应用。 严密性严密性要求必须同时实现信息数据上的大集中与小独立的和谐统一,这是因为企业一方面必须有统一的信息平台，另一方面，又必须给各个子公司部门相对独立的信息空间。这要求OA系统必须实现“用户、角色、权限+数据”的四维管控 实用性实用性要求软件能够满足发展的需求 原文链接: 上海泛微软件有限公司]]></content>
+      <categories>
+        <category>公司</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[项目中出现的问题]]></title>
+    <url>%2Fblog%2F8f6930a6%2F</url>
+    <content type="text"><![CDATA[项目中出现的问题 文章篇幅过大合成失败 原因 解决方案 文章中有废话的情况 原因 解决方案 document.querySelector(".post-body > ul").style.display = "none"; 项目中出现的问题文章篇幅过大合成失败原因讯飞提供的语音合成API有字数限制,超过一定数字后无法合成. 解决方案采用分治法,分割文章内容为多个部分,然后按部分合成,保存到临时文件,最后再用IO把多个部分合并成一个音频文件. 文章中有废话的情况原因之前合成的内容是整篇文章,后面我发现有些废话太多,导致合成的音频过长,没有收听的欲望. 解决方案在文章中添加一些标记行,当读取文章的时候,扫描到这些标记的时候,才读入内存.]]></content>
+      <categories>
+        <category>面试题</category>
+        <category>项目</category>
+        <category>语音合成</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[亚信安全]]></title>
     <url>%2Fblog%2Ffa240b01%2F</url>
     <content type="text"><![CDATA[官网 产品与服务 解决方案与案例 研发中心 公司简介 六大核心技术领域 document.querySelector(".post-body > ul").style.display = "none"; 官网https://www.asiainfo-sec.com/ 产品与服务 云安全 管道安全 终端安全 数据安全 业务安全 身份安全 基础设施安全 安全服务 安全管理 解决方案与案例 合作厂商 政府 中华人民共和国财政部 中华人民共和国海关总署 国家信息中心 国家互联网应急中心 北京市人民政府 交通运输部规划研究院 运营商 中国移动 中国电信 中国联通 银行 中国人民银行 中国工商银行 中国农业银行 中国银行 中国建设银行 交通銀行 中信银行 招商银行 中国民生银行 广发银行 中国光大银行 华夏银行 浦发银行 中国邮政 厂东农信 保险机构 太平洋保险 中国人寿 泰康人寿 安邦保险 中国平安 新华保险 证券机构 中信证券 中信建投证券 中国银河证券 围信证券 招商证券 大学 清华大学 中国科学院 复旦大学 四川大学 汽车厂商 一汽大众 上汽大众 广汽 北京现代 电器厂商 松下电器 创维 政府 运营商 金融 医疗 教育 能源 制造 交通研发中心亚信安全在中国北京和南京设有独立研发中心，拥有超过2000人的专业安全团队公司简介亚信安全是中国网络安全产业领跑者，从2000年开始发力安全业务，2015年通过趋势科技中国。亚信安全在云安全、身份安全、终端安全、态势感知、高级威胁治理，以及威胁情报领域等拥有多项全球领先技术同时亚信安全也是5G、云计算、物联网、大数据、工控以及移动六大安全场景的引领者。企业安全,国家重大项目安全保障六大核心技术领域 云安全 高级威胁治理 态势感知 身份安全 终端安全 威胁情报 成都,科学城,亚信网络安全技术产业研究院C3安全峰会由亚信安全承办 原文链接: 亚信安全]]></content>
